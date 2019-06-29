@@ -3,11 +3,13 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class Implementacao extends UnicastRemoteObject implements QuestionarioInterface {
 
+	private static final long serialVersionUID = 1L;
+
 	protected Implementacao() throws RemoteException {
 		super();
 		
 	}
-	// declaracao das variaveis da classe "Implementacao"
+	// declaracao das variaveis da classe "Implementacao".
 	private int controlador = 0;
 	private int identificador = 0;	
 	private double peso=0.;

@@ -1,13 +1,11 @@
-import java.awt.Font;
 import java.awt.HeadlessException;
 import java.rmi.RemoteException;
 import java.rmi.Naming;
 import javax.swing.*;
-import javax.swing.plaf.FontUIResource;
 
 public class Cliente {
 
-	// declaracao de variaveis
+	// declaracao de variaveis.
 	private static QuestionarioInterface controlador = null;
 	private static int cliente = 0;
 	private static double peso=0.;
@@ -34,7 +32,7 @@ public class Cliente {
 	public static void menu() {
 
 		String opcao = JOptionPane.showInputDialog(null,
-				"OPÃ‡Ã•ES:\n\n1) Para acessar o SERVIDOR 1\n\n2) Para acessar o SERVIDOR 2\n\n3) Digite 3 para SAIR! ",
+				"Opcoes:\n\n1) Para acessar o SERVIDOR 1\n\n2) Para acessar o SERVIDOR 2\n\n3) Digite 3 para SAIR! ",
 				"ESCOLHA DE SERVIDORES", JOptionPane.PLAIN_MESSAGE);
 		try {
 
@@ -76,13 +74,13 @@ public class Cliente {
 	 * DISTRIBUI AS FUNCIONALIDADES PARA OS CLIENTES
 	 */
 
-	// Metodo "inicializar" faz controle a ordem de execucao dos metodos "cliente1" e "cliente2".
+	// Metodo "inicializar" faz controle da ordem de execucao dos metodos "cliente1" e "cliente2".
 	public static void inicializar() {
 		
 		try {
 
 			if (controlador.getCountCliente() == 1) {
-				JOptionPane.showMessageDialog(null, "Aguardando o Segundo Cliente", "InformaÃ§Ã£o",
+				JOptionPane.showMessageDialog(null, "Aguardando o Segundo Cliente", "Informacao",
 						JOptionPane.WARNING_MESSAGE);
 			}
 
@@ -114,6 +112,7 @@ public class Cliente {
 				controlador.getProximoCliente(); // passa a vez para o proximo cliente.
 				
 			while (!vezCliente()) { //enquanto nao for a vez do cliente, nap avanca.
+			
 			}
 			
 			// o cliente 1 entra com o peso.
@@ -128,7 +127,6 @@ public class Cliente {
 			
 			controlador.setPeso(peso);
 			
-			System.out.print("Cliente 1 perguntou");
 			controlador.getProximoCliente(); // o proximo cliente faz o que tem que fazer.
 			
 			while (!vezCliente()) { //enquanto nao for a vez do cliente, nao avanca.
@@ -141,7 +139,7 @@ public class Cliente {
 				
 				captura = JOptionPane.showInputDialog(null, "Digite sua idade: ");
 			
-			}while(captura.matches("[a-zA-z]+") || captura.isEmpty()); // caso o que foi digitado seja letra ou campo em branco ele pergunta  
+			}while(captura.matches("[a-zA-z]+") || captura.isEmpty()); // caso o que foi digitado seja letra ou campo em branco ele pergunta.  
 																	   // de novo.
 			
 			idade = Integer.parseInt(captura); // parse de "String" para "int" depois joga dentro da variavel "idade".
@@ -180,8 +178,6 @@ public class Cliente {
 			}
 			
 			// cliente 2 entra com altura.
-			
-			// faz uma pergunta aqui.
 			
 			do{
 				
@@ -247,7 +243,6 @@ public class Cliente {
 				}
 				else{
 
-					UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("ARIAL", Font.PLAIN, 25)));
 					JOptionPane.showMessageDialog(null ,
 					     "<html><div color=red>Obsidade grave!" , "Perigo!" , JOptionPane.WARNING_MESSAGE);
 				}

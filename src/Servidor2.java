@@ -3,6 +3,7 @@ import java.rmi.Naming;
 public class Servidor2 {
 
 	Servidor2() {
+		
 		try {
 			Implementacao Servidor = new Implementacao();
 			Naming.rebind("rmi://127.0.0.1/questionario2", Servidor);
