@@ -7,7 +7,7 @@ import javax.swing.plaf.FontUIResource;
 
 public class Cliente {
 
-	// declaraçao de variaveis.
+	// declaracao de variaveis
 	private static QuestionarioInterface controlador = null;
 	private static int cliente = 0;
 	private static double peso=0.;
@@ -23,7 +23,7 @@ public class Cliente {
 			
 			menu();
 			
-		// dá erro se não conseguir.
+		// da erro se nao conseguir.
 		}catch(Exception e) {
 			
 			System.out.println("Erro: " + e.getMessage());
@@ -40,6 +40,12 @@ public class Cliente {
 
 			switch (opcao) {
 			case "1":
+				
+//				HelloInterface hello = (HelloInterface)Naming.lookup("//localhost/Hello");
+//				This Naming.lookup() call inspects the RMI Registry running in the localhost for a binding under the name "Hello".
+//				It returns an Object that has to be cast to whatever remote interface you're expecting it to be.
+//				You can then use that object to call the remote methods defined in the interface.
+				
 				controlador = (QuestionarioInterface) Naming.lookup("//10.0.200.6/rmi"); 
 				controlador.setCountCliente(1);
 				cliente = controlador.getCountCliente();
@@ -80,14 +86,14 @@ public class Cliente {
 						JOptionPane.WARNING_MESSAGE);
 			}
 
-			while (controlador.getCountCliente() != 2) { // aguarda até que existam pelo menos dois clientes.
+			while (controlador.getCountCliente() != 2) { // aguarda ate que existam pelo menos dois clientes.
 			}
 
-			if (cliente == 1) { // caso a variavel "cliente" tenha valor 1, o metodo "cliente1" é chamado.
+			if (cliente == 1) { // caso a variavel "cliente" tenha valor 1, o metodo "cliente1" eh chamado.
 				cliente1();
 			}
 
-			if (cliente == 2) { // caso a variavel "cliente" tenha valor 2, o metodo "cliente2" é chamado.
+			if (cliente == 2) { // caso a variavel "cliente" tenha valor 2, o metodo "cliente2" eh chamado.
 				cliente2();
 			}
 
@@ -107,7 +113,7 @@ public class Cliente {
 				
 				controlador.getProximoCliente(); // passa a vez para o proximo cliente.
 				
-			while (!vezCliente()) { //enquanto nÃ£o for a vez do cliente, nÃ£o avanÃ§a.
+			while (!vezCliente()) { //enquanto nao for a vez do cliente, nap avanca.
 			}
 			
 			// o cliente 1 entra com o peso.
@@ -123,9 +129,9 @@ public class Cliente {
 			controlador.setPeso(peso);
 			
 			System.out.print("Cliente 1 perguntou");
-			controlador.getProximoCliente(); // o prÃ³ximo cliente faz o que tem que fazer.
+			controlador.getProximoCliente(); // o proximo cliente faz o que tem que fazer.
 			
-			while (!vezCliente()) { //enquanto nÃ£o for a vez do cliente, nÃ£o avanÃ§a.
+			while (!vezCliente()) { //enquanto nao for a vez do cliente, nao avanca.
 			
 			}
 
@@ -138,10 +144,10 @@ public class Cliente {
 			}while(captura.matches("[a-zA-z]+") || captura.isEmpty()); // caso o que foi digitado seja letra ou campo em branco ele pergunta  
 																	   // de novo.
 			
-			idade = Integer.parseInt(captura); // parse de "String" para "int" e joga dentro da variavel "idade".
+			idade = Integer.parseInt(captura); // parse de "String" para "int" depois joga dentro da variavel "idade".
 			
-			controlador.setIdade(idade);	// usa o metodo "set" do objeto "controlador" que é uma interface onde está declarado o mesmo.
-		    controlador.calculaImc();		// usa o metodo "calcularImc" do objeto "controlador" que é uma interface onde está declarado o mesmo.
+			controlador.setIdade(idade);	// usa o metodo "set" do objeto "controlador" que eh uma interface onde estah declarado o mesmo.
+		    controlador.calculaImc();		// usa o metodo "calcularImc" do objeto "controlador" que eh uma interface onde estah declarado o mesmo.
 			
 		    imc(); // chamada do metodo "imc".
 			
@@ -169,7 +175,7 @@ public class Cliente {
 				JOptionPane.showMessageDialog(null, "Aguardando pergunta do CLIENTE (1). (CLIENTE 2)","",
 					JOptionPane.INFORMATION_MESSAGE);
 
-			while (!vezCliente()) { // enquanto nÃ£o for a vez do cliente, nÃ£o avanÃ§a.
+			while (!vezCliente()) { // enquanto nao for a vez do cliente, nao avanca.
 				
 			}
 			
@@ -196,7 +202,6 @@ public class Cliente {
 			
 			while( controlador.getImc() == (double) 0 ) {
 				
-				System.out.println(controlador.getImc());
 			}
 			
 			JOptionPane.showMessageDialog(null, "Cliente 2 Finalizando!");
@@ -208,7 +213,7 @@ public class Cliente {
 		}
 	}
 	
-	// faz o controle para verificar se aquela vez é realmente do cliente em questao.
+	// faz o controle para verificar se aquela vez eh realmente do cliente em questao.
 	public static boolean vezCliente() {
 		
 		try {
